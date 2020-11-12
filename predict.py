@@ -4,7 +4,7 @@ import csv
 import pickle
 import numpy as np
 import sklearn
-
+import os 
 
 app = Flask(__name__)
 
@@ -81,4 +81,8 @@ if __name__ == '__main__':
     #store the path through the arugment
     path = args.n
     loaded_model=file_open()
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host = '0.0.0.0', port = port)
+
+
+ 
